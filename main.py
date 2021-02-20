@@ -69,7 +69,7 @@ async def stats(ctx):
 
     embed.set_author(name=ctx.message.author, icon_url=ctx.author.avatar_url)
 
-    embed.add_field(name=f'Homie-Points {ref.EMOJIS['homiepoint']}', value=data.get([user, 'hp']), inline=False)
+    embed.add_field(name=f'Homie-Points {ref.EMOJIS["homiepoint"]}', value=data.get([user, 'hp']), inline=False)
 
     embed.add_field(name='Level', value=lvl + 1, inline=False)
 
