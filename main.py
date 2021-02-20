@@ -80,7 +80,7 @@ async def stats(ctx):
 
 @client.command()
 async def debug(ctx, i):
-    await ctx.send(i)
+    print(i)
 
 
 '''@client.command()
