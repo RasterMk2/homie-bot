@@ -26,3 +26,7 @@ BOOSTS = {
     'mboost': 50,
     'lboost': 100
 }
+
+EMOJIS = {
+    'homiepoint': '<:homiepoint:812797290942693436>'
+} 
