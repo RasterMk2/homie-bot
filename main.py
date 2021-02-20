@@ -78,9 +78,9 @@ async def stats(ctx):
 
     await ctx.send(embed=embed)
 
-'''@client.command()
+@client.command()
 async def debug(ctx, i):
-    await buy_pet(ctx.message.author.id, i)'''
+    await ctx.send(i)
 
 
 '''@client.command()
