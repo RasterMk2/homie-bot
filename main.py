@@ -12,17 +12,12 @@ client.remove_command('help')
 
 data = db.DB('data')
 
-'''async def lcs(n):
-    return int(((n ** 2) + n + 2) / 2)'''
-
 lcs = lambda n: int((n ** 2) + n + 2) / 2
-
 
 async def create_account(user):
     data.set([user, 'hp'], 100)
     data.set([user, 'lvl'], 1)
     data.set([user, 'exp'], 0)
-
 
 async def add_exp(ctx, user, exp):
     data.set([str(user), 'exp'], data.get([str(user), 'exp']) + exp)
@@ -41,18 +36,6 @@ async def add_exp(ctx, user, exp):
             await ctx.channel.send(f'Great job {ctx.author.name}! You leveled up to level {a}.')
         else:
             await ctx.send(f'Great job {ctx.message.author.name}! You leveled up to level {a}.')
-
-
-async def buy_pet(user, pet):
-    user = str(user)
-    if not data.has_key([user], 'pets'):
-        data.set([user, 'pets'], {})
-    pets = len(data.get([user, 'pets']).keys())
-
-    data.set([user, 'pets', str(pets)], {
-        'name': None, 'type': 'dog', 'lvl': 0, 'exp': 0
-    })
-
 
 @client.command()
 async def help(ctx):
@@ -94,56 +77,10 @@ async def stats(ctx):
                     inline=False)
 
     await ctx.send(embed=embed)
-    # await ctx.send(f'You have {data.get([str(ctx.message.author.id), "hp"])} Homie-Points:tm:')
 
-
-@client.command()
-async def shop(ctx, branchf='shop'):
-    branch = ref.SHOP[branchf.lower()]
-
-    embed = discord.Embed(color=discord.Color.purple(), timestamp=ctx.message.created_at)
-
-    if branchf == 'shop':
-        for i in branch:
-            embed.add_field(name=i[0], value=i[1], inline=False)
-    else:
-        for i in branch:
-            embed.add_field(name=f'{i[0]} - {i[2]}HP:tm:$', value=f'{i[1]}\nCode: {i[3]}', inline=False)
-
-    await ctx.send(embed=embed)
-
-
-@client.command()
-async def buy(ctx, item=None, qnt=1):
-    user = str(ctx.message.author.id)
-
-    if item:
-        itype = ref.ITYPE[item]
-
-        if itype == 'boost':
-            await add_exp(ctx, user, ref.BOOSTS[item])
-        elif itype == 'pet':
-            pass
-    else:
-        ctx.send('Please specify the item that you want to buy!')
-
-
-@client.command()
-async def pet(ctx, action, pet=None):
-    user = str(ctx.message.author.id)
-    action = str(action).lower()
-
-    if not pet:
-        pet = len(data.get([user, 'pets']).keys()) - 1
-
-    if action == 'name':
-        data.set([user, 'pets', pet, 'name'], )
-
-
-
-@client.command()
+'''@client.command()
 async def debug(ctx, i):
-    await buy_pet(ctx.message.author.id, i)
+    await buy_pet(ctx.message.author.id, i)'''
 
 
 @client.command()
