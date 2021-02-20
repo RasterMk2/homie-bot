@@ -83,9 +83,9 @@ async def debug(ctx, i):
     await buy_pet(ctx.message.author.id, i)'''
 
 
-@client.command()
+'''@client.command()
 async def chexp(ctx, exp):
-    await add_exp(ctx, str(ctx.message.author.id), int(exp))
+    await add_exp(ctx, str(ctx.message.author.id), int(exp))'''
 
 
 @client.event
