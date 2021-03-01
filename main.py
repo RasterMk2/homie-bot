@@ -43,7 +43,7 @@ async def help(ctx):
     embed.set_author(name="Help", icon_url=ctx.author.avatar_url)
     # embed.title("Help")
     embed.add_field(name="Commands",
-                    value="h!help - This.\nh!ping - Tells you my respond time.\nh!profile - Shows you your profile.",
+                    value="h!help - This.\nh!ping - Tells you my respond time.\nh!stats - Shows you your stats.",
                     inline=False)
     await ctx.send(embed=embed)
 
